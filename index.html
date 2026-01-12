@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>퀴즈 & 룰렛</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-pink-50 via-sky-50 to-amber-50">
+  <main class="mx-auto max-w-5xl px-6 py-10">
+    <section class="rounded-3xl bg-white/80 backdrop-blur shadow-xl border border-white p-8">
+
+      <!-- 헤더 -->
+      <header class="flex justify-between items-start gap-4">
+        <div>
+          <span id="badge"
+            class="inline-flex px-4 py-2 rounded-full text-lg font-bold bg-amber-100 text-amber-900 border">
+            🔌 연결 필요
+          </span>
+          <h1 class="mt-4 text-4xl font-extrabold">퀴즈 풀고 룰렛 돌리기 🎡</h1>
+          <p class="mt-2 text-xl text-slate-600">
+            영역 → 문항 → 정답이면 룰렛!
+          </p>
+        </div>
+
+        <div class="text-right space-y-2">
+          <div class="flex gap-2 justify-end">
+            <a href="admin.html"
+              class="h-12 px-4 rounded-xl border bg-white shadow text-lg font-bold">
+              ⚙ 관리자
+            </a>
+
+            <button id="btnConnect"
+              class="h-12 px-4 rounded-xl bg-indigo-600 text-white font-bold">
+              BLE 연결
+            </button>
+
+            <button id="btnDisconnect"
+              class="h-12 px-4 rounded-xl bg-slate-300 font-bold hidden">
+              연결 해제
+            </button>
+          </div>
+
+          <div class="text-sm text-slate-500">
+            장치: <b id="deviceName">-</b><br/>
+            부스: <b id="boothInfo">-</b>
+          </div>
+        </div>
+      </header>
+
+      <!-- 메인 영역 -->
+      <div id="stage" class="mt-10"></div>
+
+      <p class="mt-8 text-center text-lg text-slate-600">
+        BLE가 안 되면 micro:bit <b>A 버튼</b>으로도 룰렛을 시작할 수 있어요.
+      </p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>관리자</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-pink-50 via-sky-50 to-amber-50">
+  <main class="mx-auto max-w-6xl px-6 py-10">
+    <section class="rounded-3xl bg-white/80 backdrop-blur shadow-xl border p-8">
+
+      <header class="flex justify-between items-start">
+        <div>
+          <h1 class="text-4xl font-extrabold">🔒 관리자 페이지</h1>
+          <p class="mt-2 text-xl text-slate-600">
+            PIN 0228 / 섹션 3개 × 문항 5개 고정
+          </p>
+        </div>
+        <a href="index.html"
+          class="h-12 px-4 rounded-xl border bg-white shadow text-lg font-bold">
+          ← 사용자
+        </a>
+      </header>
+
+      <div class="mt-8">
+        <label class="font-bold text-lg">부스 번호</label>
+        <select id="boothSelect"
+          class="ml-3 h-12 px-4 rounded-xl border text-lg font-bold">
+          <option value="1">1번 (A1)</option>
+          <option value="2">2번 (B2)</option>
+          <option value="3">3번 (C3)</option>
+          <option value="4">4번 (D4)</option>
+        </select>
+      </div>
+
+      <div class="mt-8" id="adminArea"></div>
+
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
