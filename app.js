@@ -97,9 +97,10 @@ async function bleConnect(onState) {
   }
 
   const device = await navigator.bluetooth.requestDevice({
-    filters: [{ services: [UART_SERVICE] }],
-    optionalServices: [UART_SERVICE],
-  });
+  filters: [{ services: [UART_SERVICE] }],
+  optionalServices: [UART_SERVICE],
+});
+
 
   device.addEventListener("gattserverdisconnected", () => {
     ble = { device, server: null, rx: null, connected: false };
@@ -481,4 +482,5 @@ function initAdmin() {
     URL.revokeObjectURL(url);
   }
 }
+
 
