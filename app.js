@@ -97,7 +97,7 @@ async function bleConnect(onState) {
   }
 
   const device = await navigator.bluetooth.requestDevice({
-    filters: [{ namePrefix: "ROULETTE-" }],
+    filters: [{ services: [UART_SERVICE] }],
     optionalServices: [UART_SERVICE],
   });
 
@@ -481,3 +481,4 @@ function initAdmin() {
     URL.revokeObjectURL(url);
   }
 }
+
