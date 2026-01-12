@@ -3,38 +3,76 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>관리자</title>
+  <title>관리자 - 문항 관리</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="min-h-screen bg-gradient-to-br from-pink-50 via-sky-50 to-amber-50">
   <main class="mx-auto max-w-6xl px-6 py-10">
-    <section class="rounded-3xl bg-white/80 backdrop-blur shadow-xl border p-8">
+    <section class="rounded-3xl bg-white/80 backdrop-blur shadow-xl border border-white p-8">
 
-      <header class="flex justify-between items-start">
+      <header class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div>
-          <h1 class="text-4xl font-extrabold">🔒 관리자 페이지</h1>
+          <h1 class="text-4xl font-extrabold">🔒 관리자 - 문항 관리</h1>
           <p class="mt-2 text-xl text-slate-600">
-            PIN 0228 / 섹션 3개 × 문항 5개 고정
+            객관식 전용 · 섹션 3개 × 문항 5개(총 15개) 고정 · PIN 필요
           </p>
         </div>
-        <a href="index.html"
-          class="h-12 px-4 rounded-xl border bg-white shadow text-lg font-bold">
-          ← 사용자
-        </a>
+
+        <div class="flex items-center gap-2">
+          <a href="index.html"
+             class="h-12 px-4 rounded-xl border bg-white shadow-sm text-lg font-extrabold text-slate-700 hover:bg-slate-50
+                    inline-flex items-center justify-center gap-2 leading-none">
+            <span aria-hidden="true" class="text-xl">←</span>
+            <span class="leading-none">사용자</span>
+          </a>
+
+          <button id="btnLogout"
+             class="h-12 px-4 rounded-xl bg-rose-500 text-white font-extrabold text-lg shadow-md hover:bg-rose-600
+                    inline-flex items-center justify-center gap-2 leading-none">
+            <span aria-hidden="true" class="text-xl">🚪</span>
+            <span class="leading-none">로그아웃</span>
+          </button>
+        </div>
       </header>
 
-      <div class="mt-8">
-        <label class="font-bold text-lg">부스 번호</label>
-        <select id="boothSelect"
-          class="ml-3 h-12 px-4 rounded-xl border text-lg font-bold">
-          <option value="1">1번 (A1)</option>
-          <option value="2">2번 (B2)</option>
-          <option value="3">3번 (C3)</option>
-          <option value="4">4번 (D4)</option>
-        </select>
+      <!-- 부스 설정 + JSON -->
+      <div class="mt-8 rounded-3xl bg-white border shadow-sm p-6">
+        <h2 class="text-2xl font-extrabold">부스 설정</h2>
+        <p class="mt-2 text-slate-600 text-lg">
+          태블릿 4대면 부스 번호를 1~4로 나눠 설정하세요(토큰이 달라져 엉킴 방지).
+        </p>
+
+        <div class="mt-4 flex flex-wrap items-center gap-4">
+          <label class="text-lg font-bold">부스 번호(1~4)</label>
+          <select id="boothSelect" class="h-12 rounded-xl border px-4 text-lg font-extrabold">
+            <option value="1">1번 (TOKEN A1)</option>
+            <option value="2">2번 (TOKEN B2)</option>
+            <option value="3">3번 (TOKEN C3)</option>
+            <option value="4">4번 (TOKEN D4)</option>
+          </select>
+          <span class="text-slate-500">micro:bit 이름은 ROULETTE-1~4 추천</span>
+        </div>
+
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button id="btnExport"
+            class="h-12 px-5 rounded-xl bg-indigo-600 text-white font-extrabold text-lg hover:bg-indigo-700 shadow">
+            JSON 내보내기
+          </button>
+
+          <label class="h-12 px-5 rounded-xl bg-white border shadow-sm font-extrabold text-lg text-slate-700 hover:bg-slate-50 grid place-items-center cursor-pointer">
+            JSON 가져오기
+            <input id="fileImport" type="file" accept="application/json" class="hidden" />
+          </label>
+
+          <button id="btnReset"
+            class="h-12 px-5 rounded-xl bg-amber-500 text-white font-extrabold text-lg hover:bg-amber-600 shadow">
+            기본값 리셋
+          </button>
+        </div>
       </div>
 
+      <!-- 문항 관리 영역 -->
       <div class="mt-8" id="adminArea"></div>
 
     </section>
